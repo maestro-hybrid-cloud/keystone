@@ -50,14 +50,14 @@ class Manager(manager.Manager):
     def _validate_redelegation(redelegated_trust, trust):
         # Validate against:
         # 0 < redelegation_count <= max_redelegation_count
-        max_redelegation_count = CONF.trust.max_redelegation_count
-        redelegation_depth = redelegated_trust.get('redelegation_count', 0)
-        if not (0 < redelegation_depth <= max_redelegation_count):
-            raise exception.Forbidden(
-                _('Remaining redelegation depth of %(redelegation_depth)d'
-                  ' out of allowed range of [0..%(max_count)d]') %
-                {'redelegation_depth': redelegation_depth,
-                 'max_count': max_redelegation_count})
+        # max_redelegation_count = CONF.trust.max_redelegation_count
+        # redelegation_depth = redelegated_trust.get('redelegation_count', 0)
+        # if not (0 < redelegation_depth <= max_redelegation_count):
+        #     raise exception.Forbidden(
+        #         _('Remaining redelegation depth of %(redelegation_depth)d'
+        #           ' out of allowed range of [0..%(max_count)d]') %
+        #         {'redelegation_depth': redelegation_depth,
+        #          'max_count': max_redelegation_count})
 
         # remaining_uses is None
         remaining_uses = trust.get('remaining_uses')
